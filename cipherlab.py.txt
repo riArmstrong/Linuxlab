@@ -1,0 +1,36 @@
+def caesar_cipher(plaintext,n):
+    encryp_txt= ""
+
+    # loop to iterate over text
+    for letter in range(len(plaintext)):
+        key_char = plaintext[letter]
+ 
+ 
+        if   key_char == " " or   key_char == ',' or   key_char == '.' or   key_char == ';':
+           key_char += " "
+        
+        elif ( key_char.isupper()):
+            ans += chr((ord( key_char) + n-65) % 26 + 65)
+        # check if a character is lowercase then encrypt it accordingly
+        
+        else:
+            ans += chr((ord( key_char) + n-97) % 26 + 97)
+
+    return ans
+def printkeys(cyp):
+    s = encrypt_text(plaintext, n)
+    s = ''.join(filter(lambda c: c.isalpha(), cyp.upper()))  # this will remove all non-alphabetical characters
+    blocks = [cyp[t:t + 5] for i in range(0, len(cyp), 5)]
+    for a in range(0, len(keys), 10):
+        for b in range(t, min(t + 10, len(keys))):
+            print(blocks[b], end=' ')
+
+
+plaintext = "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the government for a redress of grievances."
+n = 1
+s = caesar_cipher(plaintext, n)
+print("Plain Text is : " + plaintext)
+print("Shift pattern is : " + str(n))
+print("The Encrypted Text Is: ")
+print(print_keys(s))
+
